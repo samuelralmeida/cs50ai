@@ -41,11 +41,11 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
 
-    aa = []
-    for ridx, row in enumerate(board):
-        for cidx, collumn in enumerate(row):
-            if collumn == EMPTY:
-                aa.append((ridx, cidx))
+    aa = set()
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == EMPTY:
+                aa.add((i, j))
 
     return aa
 
@@ -55,14 +55,12 @@ def result(board, action):
     Returns the board that results from making move (i, j) on the board.
     """
 
-    result = copy.deepcopy(board)
+    if action not in actions(board):
+        raise Exception("Invalid Action!!!")
 
-    row, cell = action
-    if result[row][cell] != EMPTY:
-        raise NameError("invalid move")
-    
-    p = player(board)
-    result[row][cell] = p
+    result = copy.deepcopy(board)
+    result[action[0]][action[1]] = player(board)
+
     return result
 
 
@@ -86,7 +84,6 @@ def winner(board):
 
     if board[0][2] != EMPTY and all(cell == board[0][2] for cell in [board[i][2 - i] for i in range(3)]):
         return board[0][2]
-
 
     return None
 
@@ -154,11 +151,11 @@ def max_value(board, highest_current_value):
     
     lowest_possible_value = (-math.inf)
     for action in actions(board):
-       lower_value = min_value(result(board, action), lowest_possible_value)
-       if lower_value > highest_current_value:
-           return lower_value
-       
-       lowest_possible_value = max(lowest_possible_value, lower_value)
+        lower_value = min_value(result(board, action), lowest_possible_value)
+        if lower_value > highest_current_value:
+            return lower_value
+        
+        lowest_possible_value = max(lowest_possible_value, lower_value)
 
     return lowest_possible_value
 
