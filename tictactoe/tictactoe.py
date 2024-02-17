@@ -134,13 +134,13 @@ def minimax(board):
     best_score = None
     for action in aa:
         if p == X:
-            score = min_value(result(board, action))
+            score = min_value(result(board, action), -math.inf)
             if best_score == None or score > best_score:
                 best_score = score
                 best_action = action
         
         elif p == O:
-            score = max_value(result(board, action))
+            score = max_value(result(board, action), math.inf)
             if best_score == None or score < best_score:
                 best_score = score
                 best_action = action
@@ -148,31 +148,31 @@ def minimax(board):
     return best_action
 
 
-def max_value(board, menor_valor_atual=math.inf):
+def max_value(board, highest_current_value):
     if terminal(board):
         return utility(board)
     
-    v = (-math.inf)
+    lowest_possible_value = (-math.inf)
     for action in actions(board):
-       menor_valor_obtido = min_value(result(board, action), v)
-       if menor_valor_obtido > menor_valor_atual:
-           return menor_valor_obtido
+       lower_value = min_value(result(board, action), lowest_possible_value)
+       if lower_value > highest_current_value:
+           return lower_value
        
-       v = max(v, menor_valor_obtido)
+       lowest_possible_value = max(lowest_possible_value, lower_value)
 
-    return v
+    return lowest_possible_value
 
 
-def min_value(board, maior_valor_atual=-math.inf):
+def min_value(board, lowest_curret_value):
     if terminal(board):
         return utility(board)
     
-    v = math.inf
+    highest_possible_value = math.inf
     for action in actions(board):
-        maior_valor_obtido = max_value(result(board, action), v)
-        if maior_valor_obtido < maior_valor_atual:
-            return maior_valor_obtido
+        higher_value = max_value(result(board, action), highest_possible_value)
+        if higher_value < lowest_curret_value:
+            return higher_value
         
-        v = min(v, maior_valor_obtido)
+        highest_possible_value = min(highest_possible_value, higher_value)
 
-    return v
+    return highest_possible_value
