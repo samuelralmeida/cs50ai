@@ -18,3 +18,23 @@ Write a program that determines how many “degrees of separation” apart two a
 
 Details: https://cs50.harvard.edu/ai/2024/projects/0/degrees/
 My solution: [degrees directory](degrees/)
+
+#### TIC-TAC-TOE
+
+Using Minimax algorithm, implement an AI to play Tic-Tac-Toe optimally.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/0/tictactoe/
+My solution: [tic-tac-toe directory](tictactoe/)
+
+## KNOWLEDGE
+
+Course week 1: Propositional Logic. Entailment. Inference. Model Checking. Resolution. First Order Logic.
+
+### PROJECTS
+
+#### KNIGHTS
+
+Write a program to solve logic puzzles.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/1/knights/
+My solution: [knights directory](knights/)
