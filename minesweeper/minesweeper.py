@@ -260,7 +260,7 @@ class MinesweeperAI():
                     
                     if not (knowledge_2 == knowledge_1) and knowledge_1.cells.issubset(knowledge_2.cells) and (new_sentence not in self.knowledge):
                         self.knowledge.append(new_sentence)
-            
+
             if (knowledge_copy_1 == self.knowledge):
                 break
 
