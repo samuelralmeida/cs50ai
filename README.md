@@ -63,3 +63,11 @@ Write an AI to rank web pages by importance.
 Details: https://cs50.harvard.edu/ai/2024/projects/2/pagerank/
 
 My solution: [page rank directory](pagerank/)
+
+#### HEREDITY
+
+Write an AI to assess the likelihood that a person will have a particular genetic trait.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/2/heredity/
+
+My solution: [heredity directory](heredity/)
