@@ -16,7 +16,11 @@ def main():
     for page in sorted(ranks):
         print(f"  {page}: {ranks[page]:.4f}")
     ranks = iterate_pagerank(corpus, DAMPING)
+<<<<<<< HEAD
     print(f"PageRank Results from Iteration")
+=======
+    print("PageRank Results from Iteration")
+>>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
     for page in sorted(ranks):
         print(f"  {page}: {ranks[page]:.4f}")
 
@@ -40,10 +44,14 @@ def crawl(directory):
 
     # Only include links to other pages in the corpus
     for filename in pages:
+<<<<<<< HEAD
         pages[filename] = set(
             link for link in pages[filename]
             if link in pages
         )
+=======
+        pages[filename] = set(link for link in pages[filename] if link in pages)
+>>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
     return pages
 
@@ -57,7 +65,36 @@ def transition_model(corpus, page, damping_factor):
     linked to by `page`. With probability `1 - damping_factor`, choose
     a link at random chosen from all pages in the corpus.
     """
+<<<<<<< HEAD
     raise NotImplementedError
+=======
+
+    distribution = {}
+
+    to_pages = corpus[page]
+
+    if len(to_pages) == 0:
+        prob = 1 / len(corpus)
+        for corpus_page in corpus:
+            distribution[corpus_page] = prob
+
+        return distribution
+
+    damping_probability = damping_factor / len(to_pages)
+
+    damping_probability_random = (1 - damping_factor) / len(corpus)
+
+    for page in to_pages:
+        distribution[page] = damping_probability
+
+    for corpus_page in corpus:
+        if corpus_page in to_pages:
+            distribution[corpus_page] += damping_probability_random
+        else:
+            distribution[corpus_page] = damping_probability_random
+
+    return distribution
+>>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 def sample_pagerank(corpus, damping_factor, n):
@@ -69,7 +106,29 @@ def sample_pagerank(corpus, damping_factor, n):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+<<<<<<< HEAD
     raise NotImplementedError
+=======
+
+    pagerank = {}
+
+    page = random.choice(list(corpus))
+
+    for i in range(n - 1):
+        model = transition_model(corpus, page, damping_factor)
+
+        page = random.choices(population=list(model), weights=model.values(), k=1).pop()
+
+        if page in pagerank:
+            pagerank[page] += 1
+        else:
+            pagerank[page] = 1
+
+    for page in pagerank:
+        pagerank[page] = pagerank[page] / n
+
+    return pagerank
+>>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 def iterate_pagerank(corpus, damping_factor):
@@ -81,7 +140,53 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+<<<<<<< HEAD
     raise NotImplementedError
+=======
+
+    pagerank = {}
+
+    for page in corpus:
+        pagerank[page] = 1 / len(corpus)
+
+    result_step = False
+    while not result_step:
+        pagerank_copy = {}
+        for key, value in pagerank.items():
+            pagerank_copy[key] = value
+
+        pagerank_diff = {}
+
+        for page in corpus.keys():
+            probability = 0
+
+            for page_i, pages in corpus.items():
+                if page in pages:
+                    probability += pagerank_copy[page_i] / len(pages)
+
+                elif len(pages) == 0:
+                    probability += 1 / len(corpus)
+
+            pagerank[page] = (1 - damping_factor) / len(corpus) + (
+                damping_factor * probability
+            )
+
+            pagerank_diff[page] = abs(pagerank_copy[page] - pagerank[page])
+
+        result_step = True
+        for page in pagerank_diff:
+            if pagerank_diff[page] > 0.001:
+                result_step = False
+
+    sum_pagerank = 0
+    for k in pagerank:
+        sum_pagerank += pagerank[k]
+
+    for k in pagerank:
+        pagerank[k] = pagerank[k] / sum_pagerank
+
+    return pagerank
+>>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 if __name__ == "__main__":
