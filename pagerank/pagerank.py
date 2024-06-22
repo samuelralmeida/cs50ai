@@ -16,11 +16,7 @@ def main():
     for page in sorted(ranks):
         print(f"  {page}: {ranks[page]:.4f}")
     ranks = iterate_pagerank(corpus, DAMPING)
-<<<<<<< HEAD
-    print(f"PageRank Results from Iteration")
-=======
     print("PageRank Results from Iteration")
->>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
     for page in sorted(ranks):
         print(f"  {page}: {ranks[page]:.4f}")
 
@@ -44,14 +40,7 @@ def crawl(directory):
 
     # Only include links to other pages in the corpus
     for filename in pages:
-<<<<<<< HEAD
-        pages[filename] = set(
-            link for link in pages[filename]
-            if link in pages
-        )
-=======
         pages[filename] = set(link for link in pages[filename] if link in pages)
->>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
     return pages
 
@@ -65,9 +54,6 @@ def transition_model(corpus, page, damping_factor):
     linked to by `page`. With probability `1 - damping_factor`, choose
     a link at random chosen from all pages in the corpus.
     """
-<<<<<<< HEAD
-    raise NotImplementedError
-=======
 
     distribution = {}
 
@@ -94,7 +80,6 @@ def transition_model(corpus, page, damping_factor):
             distribution[corpus_page] = damping_probability_random
 
     return distribution
->>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 def sample_pagerank(corpus, damping_factor, n):
@@ -106,9 +91,6 @@ def sample_pagerank(corpus, damping_factor, n):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-<<<<<<< HEAD
-    raise NotImplementedError
-=======
 
     pagerank = {}
 
@@ -128,7 +110,6 @@ def sample_pagerank(corpus, damping_factor, n):
         pagerank[page] = pagerank[page] / n
 
     return pagerank
->>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 def iterate_pagerank(corpus, damping_factor):
@@ -140,9 +121,6 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
-<<<<<<< HEAD
-    raise NotImplementedError
-=======
 
     pagerank = {}
 
@@ -186,7 +164,6 @@ def iterate_pagerank(corpus, damping_factor):
         pagerank[k] = pagerank[k] / sum_pagerank
 
     return pagerank
->>>>>>> 8ede563d0bd26a3ab9cb382f6fe607a4849b73ab
 
 
 if __name__ == "__main__":
