@@ -71,3 +71,17 @@ Write an AI to assess the likelihood that a person will have a particular geneti
 Details: https://cs50.harvard.edu/ai/2024/projects/2/heredity/
 
 My solution: [heredity directory](heredity/)
+
+## OPTIMIZATION
+
+Course week 3: Local Search. Hill Climbing. Simulated Annealing. Linear Programming. Constraint Satisfaction. Backtracking Search.
+
+### PROJECTS
+
+#### CROSSWORD
+
+Write an AI to generate crossword puzzles.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/3/crossword/
+
+My solution: [crossword directory](crossword/)
