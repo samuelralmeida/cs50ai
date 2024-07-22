@@ -80,7 +80,7 @@ def load_data(filename):
             line.append(float(row[3]))  # Informational_Duration
             line.append(int(row[4]))  # ProductRelated
             line.append(float(row[5]))  # ProductRelated_Duration
-            line.append(float(row[6])) # BounceRates
+            line.append(float(row[6]))  # BounceRates
             line.append(float(row[7]))  # ExitRates
             line.append(float(row[8]))  # PageValues
             line.append(float(row[9]))  # SpecialDay
@@ -93,7 +93,7 @@ def load_data(filename):
             line.append(int(row[16] == 'TRUE'))  # Weekend
             
             evidence.append(line)
-            labels.append(int(row[16] == 'TRUE')) # Revenue
+            labels.append(int(row[16] == 'TRUE'))  # Revenue
     
     if len(evidence) != len(labels):
         raise Exception("evidence and labels must have the same length")
@@ -106,7 +106,10 @@ def train_model(evidence, labels):
     Given a list of evidence lists and a list of labels, return a
     fitted k-nearest neighbor model (k=1) trained on the data.
     """
-    raise NotImplementedError
+    model = KNeighborsClassifier(n_neighbors=1)
+    model.fit(evidence, labels)
+
+    return model
 
 
 def evaluate(labels, predictions):
@@ -124,7 +127,23 @@ def evaluate(labels, predictions):
     representing the "true negative rate": the proportion of
     actual negative labels that were accurately identified.
     """
-    raise NotImplementedError
+    pos_labels = labels.count(1)
+    neg_labels = labels.count(0)
+
+    true_positive = 0
+    true_negative = 0
+
+    for i in range(len(predictions)):
+        if predictions[i] == labels[i]:
+            if predictions[i] == 1:
+                true_positive += 1
+            else:
+                true_negative += 1
+
+    sensitivity = true_positive / pos_labels
+    specificity = true_negative / neg_labels
+
+    return sensitivity, specificity
 
 
 if __name__ == "__main__":

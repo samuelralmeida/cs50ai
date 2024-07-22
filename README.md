@@ -85,3 +85,17 @@ Write an AI to generate crossword puzzles.
 Details: https://cs50.harvard.edu/ai/2024/projects/3/crossword/
 
 My solution: [crossword directory](crossword/)
+
+## LEARNING
+
+Course week 4: Supervised Learning. Nearest-Neighbor Classification. Perceptron Learning. Support Vector Machines. Regression. Loss Functions. Overfitting. Regularization. Reinforcement Learning. Markov Decision Processes. Q-Learning. Unsupervised Learning. k-means Clustering.
+
+### PROJECTS
+
+#### SHOPPING
+
+Write an AI to predict whether online shopping customers will complete a purchase.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/4/shopping/
+
+My solution: [shopping directory](shopping/)
