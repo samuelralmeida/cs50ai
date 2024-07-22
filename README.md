@@ -99,3 +99,11 @@ Write an AI to predict whether online shopping customers will complete a purchas
 Details: https://cs50.harvard.edu/ai/2024/projects/4/shopping/
 
 My solution: [shopping directory](shopping/)
+
+#### NIM
+
+Write an AI that teaches itself to play Nim through reinforcement learning.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/4/nim/
+
+My solution: [nim directory](nim/)
