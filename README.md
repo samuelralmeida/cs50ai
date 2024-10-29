@@ -107,3 +107,17 @@ Write an AI that teaches itself to play Nim through reinforcement learning.
 Details: https://cs50.harvard.edu/ai/2024/projects/4/nim/
 
 My solution: [nim directory](nim/)
+
+## NEURAL NETWORKS
+
+Course week 5: Artificial Neural Networks. Activation Functions. Gradient Descent. Backpropagation. Overfitting. TensorFlow. Image Convolution. Convolutional Neural Networks. Recurrent Neural Networks.
+
+### PROJECTS
+
+#### TRAFFIC
+
+Write an AI to identify which traffic sign appears in a photograph.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/5/traffic/
+
+My solution: [traffic directory](traffic/)
