@@ -135,3 +135,11 @@ Write an AI to parse sentences and extract noun phrases.
 Details: https://cs50.harvard.edu/ai/2024/projects/6/parser/
 
 My solution: [parser directory](parser/)
+
+#### ATTENTION
+
+Write an AI to predict a masked word in a text sequence.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/6/attention/
+
+My solution: [attention directory](attention/)
