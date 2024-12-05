@@ -121,3 +121,17 @@ Write an AI to identify which traffic sign appears in a photograph.
 Details: https://cs50.harvard.edu/ai/2024/projects/5/traffic/
 
 My solution: [traffic directory](traffic/)
+
+## LANGUAGE
+
+Course week 6: Syntax. Semantics. Context-Free Grammar. `nltk`. n-grams. Bag-of-Words Model. Naive Bayes. Word Representation. `word2vec`. Attention. Transformers.
+
+### PROJECTS
+
+#### PARSER
+
+Write an AI to parse sentences and extract noun phrases.
+
+Details: https://cs50.harvard.edu/ai/2024/projects/6/parser/
+
+My solution: [parser directory](parser/)
